@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link" [ngClass]="{'active': activeTab==1}" (click)="activeTab=1">Report 1</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [ngClass]="{'active': activeTab==2}" (click)="activeTab=2">Report 2</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [ngClass]="{'active': activeTab==3}" (click)="activeTab=3">Report 3</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [ngClass]="{'active': activeTab==4}" (click)="activeTab=4">Report 4</a>
+      </li>
+    </ul>
+    <div class="mt-2">
+
+      <app-users-report *ngIf="activeTab==1" [users]="users"></app-users-report>
+      <app-employees-report *ngIf="activeTab==2" [employees]="employees"></app-employees-report>
+      <app-users-report *ngIf="activeTab==3" [users]="users2"></app-users-report>
+      <app-employees-report *ngIf="activeTab==4" [employees]="employees2"></app-employees-report>        
+
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" (click)="showDropdown = !showDropdown" #mb>
+        Dropdown
+      </button>
+      <ul class="dropdown-menu" [ngClass]="{'show': showDropdown}">
+        <li><button class="dropdown-item" type="button" (click)="activeTab=1">Report 1</button></li>
+        <li><button class="dropdown-item" type="button" (click)="activeTab=2">Report 2</button></li>
+        <li><button class="dropdown-item" type="button" (click)="activeTab=3">Report 3</button></li>
+        <li><button class="dropdown-item" type="button" (click)="activeTab=4">Report 4</button></li>
+      </ul>
+    </div>
+  </div>
+</div>
